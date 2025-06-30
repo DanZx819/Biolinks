@@ -11,16 +11,18 @@
     @endif
 
 
-    <form action="/login" method="post">
+    <form action="{{route('login')}}" method="post">
         
         @csrf
-
+       
+        
         <div>
             <input name="email" placeholder="Email" value="{{ old('email')}}"/>
             @error('email')
                 <span>{{$message}}</span>
             @enderror
         </div>
+
         <br>
         <div>
             <input name="password" type="password" placeholder="Senha"/>
