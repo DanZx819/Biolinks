@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Http\Requests\MakeLoginRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -13,30 +15,15 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
-    public function login(){
+    public function login(MakeLoginRequest $request){
 
 
-        request()->validate([
-            'email' => 'required|email',
-            'password' => 'required'
-        ]);
+        
 
-
-        if($user = User::query()
-
-        ->where('email', '=', request()->email)
-
-        ->first()){
-
-            if(Hash::check(request()->password, $user->password)){
-                Auth::login($user);
-            }
-
-            
-
+        if ($request->trytoLogin()) {
             return to_route('dashboard');
         }
-
+        
         
        
 
