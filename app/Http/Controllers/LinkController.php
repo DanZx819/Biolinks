@@ -11,17 +11,14 @@ class LinkController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        //
-    }
+    
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        //
+        return view('links.create');
     }
 
     /**
@@ -29,16 +26,13 @@ class LinkController extends Controller
      */
     public function store(StoreLinkRequest $request)
     {
-        //
+        Link::query()->create(
+            $request->validated()
+        );
+
+        return to_route('dashboard');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Link $link)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.

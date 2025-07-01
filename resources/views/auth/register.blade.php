@@ -3,7 +3,7 @@
     <h1>
         Registrar
     </h1>
-    {{ auth()->id() }}
+
 
     @if ($message = session()->get('message'))
         <div>
