@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LinkController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -26,7 +27,7 @@ Route::middleware('auth')->group(function(){
 
     Route::get('/logout', LogoutController::class);
 
-    Route::get('/dashboard', fn() => 'dasboard :: '. Auth::id())->name('dashboard');
+    Route::get('/dashboard', DashboardController::class)->name('dashboard');
 
     Route::get('/links/create', [LinkController::class, 'create'])->name('links.create');
     
