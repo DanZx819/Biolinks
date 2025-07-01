@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 
+use Illuminate\Validation\Rules\Password;
 class RegisterRequest extends FormRequest
 {
     /**
@@ -25,23 +26,15 @@ class RegisterRequest extends FormRequest
         return [
             'name' => 'required|string',
             'lastname' => 'required|string',
-            'email' => 'required|email|confirmed',
-            'password' => 'required'
+            'email' => 'required|email|confirmed|unique:users',
+            'password' => ['required', Password::defaults()]
+            
         ];
     }
 
     public function tryToRegister(){
-        $user = new User();
-
-        $user->name = $this->name;
-
-        $user->lastname = $this->lastname;
-
-        $user->password = $this->password;
-
-        $user->email = $this->email;
-
-        $user->save();
+        
+       $user = User::query()->create($this->validated());
 
         return true;
     }
