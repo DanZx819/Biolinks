@@ -15,7 +15,7 @@ Route::middleware('guest')->group(function(){
 
     Route::post('/login',[LoginController::class, 'login']);
 
-    Route::get('/register', [RegisterController::class, 'index'])->name('register');
+    Route::get('/register', [RegisterController::class, 'index'])->name('register.index');
 
     Route::post('/register',[RegisterController::class, 'register']);
 
@@ -29,9 +29,22 @@ Route::middleware('auth')->group(function(){
 
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
 
+    
+
     Route::get('/links/create', [LinkController::class, 'create'])->name('links.create');
     
     Route::post('/links/create', [LinkController::class, 'store'])->name('links.store');
+
+    Route::get('/links/{link}/edit', [LinkController::class, 'edit'])->name('links.edit');
+
+    Route::put('/links/{link}/edit', [LinkController::class, 'update']);
+
+    Route::delete('/links/{link}', [LinkController::class, 'destroy'])->name('links.destroy');
+
+    Route::patch('/links/{link}/up', [LinkController::class, 'up'])->name('links.up');
+
+    Route::patch('/links/{link}/down', [LinkController::class, 'down'])->name('links.down');
+
 });
 
 

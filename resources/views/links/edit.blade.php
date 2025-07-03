@@ -1,7 +1,7 @@
 <div>
     <div>
     <h1>
-        Criar um Link
+        Editar um Link :: {{ $link->name }}
     </h1>
     
 
@@ -12,12 +12,12 @@
     @endif
 
 
-    <form action="{{route('links.store')}}" method="post">
+    <form action="{{route('links.edit', $link)}}" method="post">
         
         @csrf
-        <input type="hidden" name="sort" value="0">
+        @method('put')
          <div>
-            <input name="name" placeholder="Name" />
+            <input name="name" placeholder="Name" value="{{ old('name', $link->name )}}"/>
             @error('name')
                 <span>{{$message}}</span>
             @enderror
@@ -26,7 +26,7 @@
         <br>
         
         <div>
-            <input name="link" placeholder="Seu link" />
+            <input name="link" placeholder="Seu link" value="{{ old('link', $link->link) }}"/>
             @error('link')
                 <span>{{$message}}</span>
             @enderror
@@ -35,9 +35,10 @@
         <br>
     
         
-        <button>Registrar</button>
+        <button>Salvar</button>
         
     </form>
+
     <a href="{{ route('dashboard') }}">Voltar</a>
 </div>
 </div>

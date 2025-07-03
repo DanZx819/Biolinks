@@ -10,6 +10,6 @@ class LogoutController extends Controller
     {
         Auth::logout();
         session()->invalidate();
-        return to_route('login');
+        return to_route('login.index');
     }
 }
