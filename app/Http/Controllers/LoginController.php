@@ -17,15 +17,14 @@ class LoginController extends Controller
 
     public function login(MakeLoginRequest $request){
 
-
         
-
         if ($request->trytoLogin()) {
             return to_route('dashboard');
         }
         
 
         return back()->with(['message' => 'Não deu certo !!!']);
+        
     }
 
 }

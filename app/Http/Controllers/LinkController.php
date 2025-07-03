@@ -41,7 +41,7 @@ class LinkController extends Controller
      */
     public function edit(Link $link)
     {   
-       
+       $this->authorize('atualizar', $link);
        return view('links.edit', compact('link'));
     }
 
@@ -50,6 +50,7 @@ class LinkController extends Controller
      */
     public function update(UpdateLinkRequest $request, Link $link)
     {
+        
 
         $link->fill($request->validated())->save();
 

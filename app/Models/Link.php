@@ -9,4 +9,11 @@ class Link extends Model
 {
     /** @use HasFactory<\Database\Factories\LinkFactory> */
     use HasFactory;
+    public function user()
+{
+    return $this->belongsTo(User::class);
 }
+
+}
+
+// Link.php
