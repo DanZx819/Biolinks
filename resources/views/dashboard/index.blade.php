@@ -8,6 +8,7 @@
     @if ($message = session()->get('message'))
         {{ $message }}
     @endif
+    <a href="{{ route('profile')}}"> Atualizar Profile </a>
 
     <a href="{{ route('links.create')}}"> Criar </a>
 

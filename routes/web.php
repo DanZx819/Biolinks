@@ -5,6 +5,7 @@ use App\Http\Controllers\LinkController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Auth\Events\Logout;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -45,6 +46,9 @@ Route::middleware('auth')->group(function(){
 
     Route::patch('/links/{link}/down', [LinkController::class, 'down'])->name('links.down');
 
-});
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 
+    Route::put('/profile', [ProfileController::class, 'update']);
+
+});
 
