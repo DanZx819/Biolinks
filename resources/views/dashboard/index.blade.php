@@ -19,7 +19,7 @@
                 @unless ($loop->last)
                     
                
-                <form action="{{ route('links.down', $link) }}" method="post" onsubmit="return confirm('Tem certeza ?')">
+                <form action="{{ route('links.down', $link) }}" method="post">
                     @csrf
                     @method('PATCH')
 
@@ -29,7 +29,7 @@
 
                  @if (!$loop->first)
                      
-                <form action="{{ route('links.up', $link) }}" method="post" onsubmit="return confirm('Tem certeza ?')">
+                <form action="{{ route('links.up', $link) }}" method="post" >
                     @csrf
                     @method('PATCH')
 

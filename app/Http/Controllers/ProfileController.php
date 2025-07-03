@@ -22,7 +22,15 @@ class ProfileController extends Controller
 
         $user = Auth::user();
 
-        $user->fill($request->validated())->save();
+        $data = $request->validated();
+
+        if ($file = $request->photo) {
+           $data['photo'] = $file->store('photos');
+        }
+
+        
+
+        $user->fill($data)->save();
 
         return back()->with('message', 'Profile atualizado com sucesso !!!');
 
