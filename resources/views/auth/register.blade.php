@@ -2,90 +2,27 @@
     <x-container>
         <x-card title="Register">
 
-            <x-form :route="route('login')" post id="login-form">
+            <x-form :route="route('register')" post id="register-form">
+
+                <x-input name="name" placeholder="Name" value="{{ old('name')}}"/>
 
                 <x-input name="email" placeholder="Email" value="{{ old('email')}}"/>
 
-                <x-input name="password" type="password" placeholder="Senha"/>
+                <x-input name="email_confirmation" placeholder="Email Confirmation" />
+
+                <x-input name="password" type="password" placeholder="Password"/>
 
             </x-form>
 
             <x-slot:actions>
 
-
-                <x-button type="submit" form="login-form">Register</x-button>
+                <x-a :href="route('login')">Already have an account !</x-a>
+                <x-button type="submit" form="register-form">Register</x-button>
 
 
             </x-slot:actions>
         </x-card>
 
     </x-container>
-    <div>
-    <h1>
-        Registrar
-    </h1>
-
-
-    @if ($message = session()->get('message'))
-        <div>
-            {{ $message }}
-        </div>
-    @endif
-
-
-    <form action="{{route('register')}}" method="post">
-        
-        @csrf
-
-         <div>
-            <input name="name" placeholder="Name" />
-            @error('name')
-                <span>{{$message}}</span>
-            @enderror
-        </div>
-
-
-         <div>
-            <input name="lastname" placeholder="LastName" />
-            @error('lastname')
-                <span>{{$message}}</span>
-            @enderror
-        </div>
-
-        <br>
-
-        <div>
-            <input name="email" placeholder="Email" value="{{ old('email')}}"/>
-            @error('email')
-                <span>{{$message}}</span>
-            @enderror
-        </div>
-
-
-
-        <br>
-
-
-        <div>
-            <input name="email_confirmation" placeholder="Confirme o Email" />
-            @error('email_confirmation')
-                <span>{{$message}}</span>
-            @enderror
-        </div>
-
-        <br>
-
-        <div>
-            <input name="password" type="password" placeholder="Senha"/>
-            @error('password')
-
-                <span>{{$message}}</span>
-
-            @enderror
-        </div>
-        <br>
-        <button>Registrar</button>
-        
-    </form>
-</div>
+    
 </x-layout.app>
