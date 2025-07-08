@@ -1,8 +1,8 @@
 <x-layout.app>
     <x-container>
-        <x-card title="Editing Link :: id {{ $link->id }}">
+        <x-card title="Editing Link">
 
-            <x-form :route="route('links.edit')" put id="edit-form">
+            <x-form :route="route('links.update', $link)" put id="edit-form">
 
                 <x-input name="link" placeholder="Link" value="{{ old('link', $link->link)}}"/>
 

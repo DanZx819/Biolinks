@@ -1,3 +1,5 @@
+
+
 <x-layout.app>
     <x-container>
         <x-card title="Profile">
@@ -5,11 +7,8 @@
             <x-form :route="route('profile.update')" put id="form" enctype="multipart/form-data">
 
                 <div class="flex gap-2 items-center">
-                    <div class="avatar">
-                        <div class="w-24 rounded-xl">
-                            <img src="/storage/{{ $user->photo }}" alt="Profile Picture">
-                        </div>
-                    </div>
+                    
+                    <x-img src="/storage/{{ $user->photo }}" alt="Profile Picture"/>
 
                     <x-file-input name="photo"/>
 

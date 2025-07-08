@@ -2,7 +2,7 @@
     <x-container>
         <x-card title="Register">
 
-            <x-form :route="route('register')" post id="register-form">
+            <x-form :route="route('register.create')" post id="register-form">
 
                 <x-input name="name" placeholder="Name" value="{{ old('name')}}"/>
 
