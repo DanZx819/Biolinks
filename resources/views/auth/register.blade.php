@@ -17,7 +17,7 @@
             <x-slot:actions>
 
                 <x-a :href="route('login')">Already have an account !</x-a>
-                <x-button type="submit" form="register-form">Register</x-button>
+                <x-button type="submit" form="register-form" primary >Register</x-button>
 
 
             </x-slot:actions>
