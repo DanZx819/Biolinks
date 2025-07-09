@@ -29,7 +29,7 @@
             <x-slot:actions>
 
                 <x-a :href="route('dashboard')">Cancel</x-a>
-                <x-button type="submit" form="form">Edit Profile</x-button>
+                <x-button type="submit" form="form" primary>Edit Profile</x-button>
 
 
             </x-slot:actions>
