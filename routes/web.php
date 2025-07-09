@@ -11,9 +11,7 @@ use Illuminate\Auth\Events\Logout;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/home', function(){
-    return view('welcome');
-});
+
 
 Route::middleware('guest')->group(function(){
     Route::get('/login', [LoginController::class, 'index'])->name('login');
@@ -30,9 +28,9 @@ Route::middleware('guest')->group(function(){
 
 Route::middleware('auth')->group(function(){
 
-    Route::get('/logout', LogoutController::class);
+    Route::get('/logout', LogoutController::class)->name('logout');
 
-    Route::get('/dashboard', DashboardController::class)->name('dashboard');
+    Route::get('/', DashboardController::class)->name('dashboard');
 
     
 
