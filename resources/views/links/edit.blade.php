@@ -13,7 +13,7 @@
             <x-slot:actions>
 
                 <x-a :href="route('dashboard')">Cancel</x-a>
-                <x-button type="submit" form="edit-form">Edit Link</x-button>
+                <x-button type="submit" form="edit-form" primary>Edit Link</x-button>
 
 
             </x-slot:actions>
