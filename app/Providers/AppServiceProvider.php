@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Database\Eloquent\Model;
 class AppServiceProvider extends ServiceProvider
 {
@@ -29,5 +30,7 @@ class AppServiceProvider extends ServiceProvider
                 ? $rule->mixedCase()->uncompromised()
                 : $rule;
         });
+
+        Blade::anonymousComponentNamespace('components.icons', 'icons');
     }
 }
